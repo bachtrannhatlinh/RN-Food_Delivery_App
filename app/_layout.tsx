@@ -6,11 +6,11 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <SafeAreaProvider>
-        <Redirect href="/Home" />
+        <Redirect href="/Auth/SignIn" />
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Home" />
-          <Stack.Screen name="Auth/Welcome" />
-          <Stack.Screen name="Auth/SignIn" />
+          <Stack.Screen name="/Home" />
+          <Stack.Screen name="/Auth/Welcome" />
+          <Stack.Screen name="/Auth/SignIn" />
         </Stack>
       </SafeAreaProvider>
     </ThemeProvider>

@@ -1,5 +1,8 @@
+import { useRouter } from "expo-router";
+import { Icon, Button, SocialIcon } from "@rneui/base";
+import * as Animatable from "react-native-animatable";
+
 import React, { useState } from "react";
-import Header from "../../components/Header";
 import {
   View,
   Text,
@@ -9,14 +12,19 @@ import {
   TextInput,
 } from "react-native";
 
-import * as Animatable from "react-native-animatable";
+import Header from "../../components/Header";
 
 import { colors, parameters } from "../../global/styles";
-import { Icon, Button, SocialIcon } from "@rneui/base";
 
 export default function SignIn() {
+  const router = useRouter();
+
   const [textInput2Fossued, setTextInput2Fossued] = useState(false);
   const [text, setPassword] = useState("");
+
+  const goToWelcomeScreen = () => {
+    router.dismissTo("/Auth/Welcome");
+  };
 
   return (
     <View style={styles.container}>
@@ -79,41 +87,42 @@ export default function SignIn() {
             title="SIGN IN"
             buttonStyle={parameters.styleButton}
             titleStyle={parameters.buttonTitle}
+            onPress={() => goToWelcomeScreen()}
           ></Button>
         </View>
 
-        <View style={{alignItems: "center", marginTop: 15}}>
-          <Text style= {{...styles.text1, textDecorationLine: "underline"}}>
+        <View style={{ alignItems: "center", marginTop: 15 }}>
+          <Text style={{ ...styles.text1, textDecorationLine: "underline" }}>
             Forgot Password
           </Text>
         </View>
 
-        <View style={{alignItems: "center", marginTop: 30, marginBottom: 30}}>
-            <Text style={{fontSize: 20, fontWeight: "bold"}}>OR</Text>
+        <View style={{ alignItems: "center", marginTop: 30, marginBottom: 30 }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>OR</Text>
         </View>
 
         <View style={{ marginHorizontal: 10, marginTop: 10 }}>
-          <SocialIcon 
-            title= "Sign In With Facebook"
+          <SocialIcon
+            title="Sign In With Facebook"
             button
-            type= "facebook"
-            style= {styles.SocialIcon}
+            type="facebook"
+            style={styles.SocialIcon}
             onPress={() => {}}
           />
         </View>
 
         <View style={{ marginHorizontal: 10, marginTop: 10 }}>
-          <SocialIcon 
-            title= "Sign In With Google"
+          <SocialIcon
+            title="Sign In With Google"
             button
-            type= "google"
-            style= {styles.SocialIcon}
+            type="google"
+            style={styles.SocialIcon}
             onPress={() => {}}
           />
         </View>
 
-        <View style={{marginTop: 25, marginLeft: 20}}>
-            <Text style={{...styles.text1,}}>New on XpressFood ?</Text>
+        <View style={{ marginTop: 25, marginLeft: 20 }}>
+          <Text style={{ ...styles.text1 }}>New on XpressFood ?</Text>
         </View>
 
         <View style={{ alignItems: "flex-end", marginHorizontal: 20 }}>
@@ -167,7 +176,7 @@ const styles = StyleSheet.create({
   SocialIcon: {
     borderRadius: 12,
     height: 50,
-    width: "97%"
+    width: "97%",
   },
 
   styleButton: {
@@ -187,6 +196,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: -3
-  }
+    marginTop: -3,
+  },
 });

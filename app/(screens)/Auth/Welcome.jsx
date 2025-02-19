@@ -11,7 +11,7 @@ export default function Welcome() {
   const router = useRouter();
 
   const goToSignInScreen = () => {
-    router.dismissTo('Auth/SignIn')
+    router.dismissTo('/Home')
   }
 
   return (
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "#ff8c52",
     height: 40,
     paddingHorizontal: 20,
     borderColor: colors.buttons,

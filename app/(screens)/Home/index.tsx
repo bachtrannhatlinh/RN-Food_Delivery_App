@@ -1,5 +1,7 @@
+import { Icon } from "@rneui/base";
+import Countdown from "react-native-countdown-component";
+
 import React, { useState } from "react";
-import Header from "../../components/Header";
 import {
   View,
   Text,
@@ -13,11 +15,14 @@ import {
   Pressable,
 } from "react-native";
 
-import { filterData } from "../../global/Data";
+import HomeHeader from "@/app/components/HomeHeader";
+import FoodCard from "@/app/components/FoodCard";
+
+import { filterData, restaurantsData } from "../../global/Data";
 
 import { colors } from "../../global/styles";
-import HomeHeader from "@/app/components/HomeHeader";
-import { Icon } from "@rneui/base";
+
+const SCREEN_WIDTH = Dimensions.get("window").width;
 
 export default function Home() {
   const [delivery, setDelivery] = useState(true);
@@ -28,7 +33,9 @@ export default function Home() {
       <HomeHeader />
 
       <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={true}>
-        <View>
+        <View
+          style={{ backgroundColor: colors.cardbackground, paddingBottom: 5 }}
+        >
           <View
             style={{
               marginTop: 10,
@@ -146,6 +153,96 @@ export default function Home() {
         <View style={styles.headerTextView}>
           <Text style={styles.headerText}>Free Delivery Now</Text>
         </View>
+
+        <View style={{ marginTop: 10 }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text
+              style={{
+                marginLeft: 15,
+                fontSize: 16,
+                marginTop: -10,
+                marginRight: 5,
+                justifyContent: "center",
+              }}
+            >
+              Options changing in
+            </Text>
+            <Countdown
+              until={3600}
+              size={14}
+              digitStyle={{ backgroundColor: colors.lightgreen }}
+              digitTxtStyle={{ color: colors.cardbackground }}
+              timeToShow={["M", "S"]}
+              timeLabels={{ m: "Min", s: "Sec" }}
+            />
+          </View>
+
+          <FlatList
+            horizontal={true}
+            style={{ marginTop: 10, marginBottom: 10 }}
+            showsHorizontalScrollIndicator={false}
+            data={restaurantsData}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <View style={{ marginRight: 5 }}>
+                <FoodCard
+                  image={item.image}
+                  restaurantName={item.restaurantName}
+                  farAway={item.farAway}
+                  businessAddress={item.businessAddress}
+                  averageReview={item.averageReview}
+                  numberOfReviews={item.numberOfReviews}
+                />
+              </View>
+            )}
+          />
+        </View>
+
+        <View style={styles.headerTextView}>
+          <Text style={styles.headerText}>Promotions available</Text>
+        </View>
+
+        <View>
+          <FlatList
+            horizontal={true}
+            style={{ marginTop: 10, marginBottom: 10 }}
+            showsHorizontalScrollIndicator={false}
+            data={restaurantsData}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <View style={{ marginRight: 5 }}>
+                <FoodCard
+                  image={item.image}
+                  restaurantName={item.restaurantName}
+                  farAway={item.farAway}
+                  businessAddress={item.businessAddress}
+                  averageReview={item.averageReview}
+                  numberOfReviews={item.numberOfReviews}
+                />
+              </View>
+            )}
+          />
+        </View>
+
+        <View style={styles.headerTextView}>
+          <Text style={styles.headerText}>Restaurants in your Area</Text>
+        </View>
+
+        <View style={{ width: SCREEN_WIDTH, paddingTop: 20 }}>
+          {restaurantsData.map((item) => (
+            <View key={item.id} style={{ marginRight: 5, marginTop: 5 }}>
+              <FoodCard
+                screenWidth={SCREEN_WIDTH * 0.95}
+                image={item.image}
+                restaurantName={item.restaurantName}
+                farAway={item.farAway}
+                businessAddress={item.businessAddress}
+                averageReview={item.averageReview}
+                numberOfReviews={item.numberOfReviews}
+              />
+            </View>
+          ))}
+        </View>
       </ScrollView>
     </View>
   );
@@ -154,6 +251,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: 10,
   },
 
   deliveryButton: {

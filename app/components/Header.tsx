@@ -7,11 +7,16 @@ import { Icon } from "@rneui/themed";
 
 import { useRouter } from "expo-router";
 
-export default function Header({ title, type }) {
+interface HeaderProps {
+  title: string;
+  type: string;
+}
+
+export default function Header({ title, type }: HeaderProps) {
   const router = useRouter();
 
   const backWelcome = () => {
-    router.dismissTo('Auth/Welcome')
+    router.dismissTo('/(screens)/Auth/SignIn')
   }
 
 
