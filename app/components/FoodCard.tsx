@@ -1,9 +1,9 @@
+import { Icon } from "@rneui/themed";
 import React from "react";
 
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { colors, parameters } from "../global/styles";
 
-import { Icon } from "@rneui/themed";
+import { colors, parameters } from "../global/styles";
 
 interface FoodCardProps {
   OnPressFoodCard?: string;
@@ -60,7 +60,6 @@ export default function Header({
             </View>
           </View>
         </View>
-
       </View>
 
       <View style={styles.review}>
@@ -68,7 +67,7 @@ export default function Header({
         <Text style={styles.numberOfReviews}>{numberOfReviews} reviews</Text>
       </View>
     </TouchableOpacity>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     right: 10,
-    backgroundColor: 'rgba(52, 52, 52, 0.3)',
+    backgroundColor: "rgba(52, 52, 52, 0.3)",
     padding: 2,
     alignItems: "center",
     justifyContent: "center",

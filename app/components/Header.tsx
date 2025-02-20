@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: colors.buttons,
     height: parameters.headerHeight,
-    alignContent: "center",
+    alignItems: "center",
   },
   headerText: {
     color: colors.headerText,

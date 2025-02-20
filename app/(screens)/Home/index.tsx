@@ -24,7 +24,7 @@ import { colors } from "../../global/styles";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-export default function Home() {
+export default function HomeScreen() {
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState(0);
 

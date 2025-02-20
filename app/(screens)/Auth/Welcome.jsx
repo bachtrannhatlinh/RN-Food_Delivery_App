@@ -7,7 +7,7 @@ import { useRouter } from 'expo-router';
 
 import { colors, parameters } from "../../global/styles";
 
-export default function Welcome() {
+export default function WelcomeScreen() {
   const router = useRouter();
 
   const goToSignInScreen = () => {

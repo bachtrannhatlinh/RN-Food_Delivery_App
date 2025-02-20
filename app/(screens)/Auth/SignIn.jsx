@@ -16,14 +16,14 @@ import Header from "../../components/Header";
 
 import { colors, parameters } from "../../global/styles";
 
-export default function SignIn() {
+export default function SignInScreen() {
   const router = useRouter();
 
   const [textInput2Fossued, setTextInput2Fossued] = useState(false);
   const [text, setPassword] = useState("");
 
   const goToWelcomeScreen = () => {
-    router.dismissTo("/Auth/Welcome");
+    router.dismissTo("ClientTabs");
   };
 
   return (
@@ -58,7 +58,6 @@ export default function SignIn() {
           </Animatable.View>
 
           <TextInput
-            // style={styles.TextInput2}
             placeholder="Password"
             onChangeText={setPassword}
             onFocus={() => {
