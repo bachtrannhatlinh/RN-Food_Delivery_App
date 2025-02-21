@@ -21,6 +21,7 @@ export default function RootClientTabs() {
         component={HomeScreen}
         options={{
           tabBarLabel: "Home",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="home" color={color} size={size} />
           ),
@@ -32,6 +33,7 @@ export default function RootClientTabs() {
         component={SearchScreen}
         options={{
           tabBarLabel: "Search",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="search" color={color} size={size} />
           ),
@@ -43,6 +45,7 @@ export default function RootClientTabs() {
         component={MyOrdersScreen}
         options={{
           tabBarLabel: "My Orders",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="view-list" color={color} size={size} />
           ),
@@ -54,6 +57,7 @@ export default function RootClientTabs() {
         component={AccountScreen}
         options={{
           tabBarLabel: "My Account",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="person" color={color} size={size} />
           ),

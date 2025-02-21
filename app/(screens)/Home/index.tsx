@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { Icon } from "@rneui/base";
 import Countdown from "react-native-countdown-component";
 
@@ -28,6 +29,12 @@ export default function HomeScreen() {
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState(0);
 
+  const router = useRouter();
+
+  const goToRestaurantMapScreen = () => {
+    router.push("/(screens)/RestaurantMap");
+  };
+
   return (
     <View style={styles.container}>
       <HomeHeader />
@@ -54,7 +61,12 @@ export default function HomeScreen() {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => setDelivery(false)}>
+            <TouchableOpacity
+              onPress={() => {
+                setDelivery(false);
+                router.push("/(screens)/RestaurantMap");
+              }}
+            >
               <View
                 style={{
                   ...styles.deliveryButton,
@@ -244,6 +256,13 @@ export default function HomeScreen() {
           ))}
         </View>
       </ScrollView>
+
+      <View style={styles.floatButton}>
+        <TouchableOpacity onPress={() => goToRestaurantMapScreen()}>
+          <Icon type="material" name="place" color={colors.buttons} size={32} />
+          <Text style={{ color: colors.grey2 }}>Map</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -335,5 +354,18 @@ const styles = StyleSheet.create({
   smallCardText: {
     fontWeight: "bold",
     color: colors.grey2,
+  },
+
+  floatButton: {
+    position: "absolute",
+    bottom: 10,
+    right: 15,
+    backgroundColor: "white",
+    elevation: 10,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    padding: 10,
+    alignItems: "center",
   },
 });

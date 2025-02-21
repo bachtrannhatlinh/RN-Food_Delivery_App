@@ -9,10 +9,11 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <Redirect href="/Auth/SignIn" />
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="ClientTabs" />
+          <Stack.Screen name="/ClientTabs" />
           <Stack.Screen name="/Auth/Welcome" />
           <Stack.Screen name="/Auth/SignIn" />
-          <Stack.Screen name="/Search" />
+          <Stack.Screen name="/Auth/Search" />
+          <Stack.Screen name="/(screens)/RestaurantMap" />
         </Stack>
       </SafeAreaProvider>
     </ThemeProvider>

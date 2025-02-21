@@ -23,7 +23,7 @@ export default function SignInScreen() {
   const [text, setPassword] = useState("");
 
   const goToWelcomeScreen = () => {
-    router.dismissTo("ClientTabs");
+    router.push("/ClientTabs");
   };
 
   return (

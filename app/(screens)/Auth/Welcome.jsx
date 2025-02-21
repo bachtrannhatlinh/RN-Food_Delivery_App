@@ -1,9 +1,9 @@
+import { useRouter } from 'expo-router';
+import { Icon, Button, SocialIcon } from "@rneui/base";
+
 import React from "react";
 import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
 import Swiper from "react-native-swiper";
-import { Icon, Button, SocialIcon } from "@rneui/base";
-
-import { useRouter } from 'expo-router';
 
 import { colors, parameters } from "../../global/styles";
 
@@ -11,7 +11,7 @@ export default function WelcomeScreen() {
   const router = useRouter();
 
   const goToSignInScreen = () => {
-    router.dismissTo('/Home')
+    router.push('/Home')
   }
 
   return (
